@@ -238,7 +238,7 @@ ul.checklist li::before {
   display: flex;
   align-items: center;
   gap: var(--s-5);
-  padding: var(--s-3) var(--s-5);
+  padding: var(--s-2) var(--s-5);
 }
 
 .site-nav .brand {
@@ -255,8 +255,8 @@ ul.checklist li::before {
 }
 
 .brand-icon {
-  width: 60px;
-  height: 60px;
+  width: 36px;
+  height: 36px;
   flex-shrink: 0;
   display: block;
   overflow: visible;
