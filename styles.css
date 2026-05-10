@@ -387,13 +387,13 @@ ul.checklist li::before {
   z-index: 2;
 }
 
-/* Whiskey glass illustration — transparent PNG, sits behind the right side of the PARTY wordmark */
+/* Whiskey glass — positioned relative to the full hero section */
 .hero-glass {
   position: absolute;
-  top: 44%;
-  right: -8%;
+  top: 50%;
+  right: 5%;
   transform: translateY(-50%);
-  width: min(528px, 50%);
+  width: min(528px, 37vw);
   z-index: 0;
   opacity: 0.7;
   pointer-events: none;
@@ -403,9 +403,9 @@ ul.checklist li::before {
   .hero-glass {
     top: auto;
     bottom: 0;
-    right: -10%;
+    right: -5%;
     transform: none;
-    width: 75%;
+    width: 70%;
     opacity: 0.35;
   }
 }
