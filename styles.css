@@ -785,6 +785,150 @@ ul.checklist li::before {
 
 .feature { background: transparent; }
 
+/* ---------- Getting here: airports, options, scenarios ----- */
+
+.airport-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-4);
+  margin: var(--s-5) 0 var(--s-8);
+}
+@media (min-width: 760px) {
+  .airport-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.airport-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: var(--s-5);
+}
+.airport-card h4 {
+  margin: 0 0 var(--s-3);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+.airport-card p { margin-bottom: var(--s-3); }
+.airport-card p:last-child { margin-bottom: 0; }
+.airport-card .meta {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+.airport-code {
+  font-family: 'DM Mono', ui-monospace, monospace;
+  font-size: 0.7rem;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.travel-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-5);
+  margin: var(--s-5) 0 var(--s-8);
+}
+@media (min-width: 760px) {
+  .travel-options { grid-template-columns: 1fr 1fr; }
+}
+.travel-option {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: var(--s-6);
+  display: flex;
+  flex-direction: column;
+}
+.travel-option h4 {
+  margin: 0 0 var(--s-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4em;
+}
+.travel-option > p { margin-bottom: var(--s-4); }
+
+.travel-stats {
+  margin: 0 0 var(--s-4);
+  padding: var(--s-3) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+.travel-stats > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+.travel-stats dt {
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+.travel-stats dd {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink);
+  text-align: right;
+}
+.cost-meter {
+  font-family: var(--font-display);
+  color: var(--red-deep);
+  letter-spacing: 0.05em;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+.cost-meter.dim { color: var(--ink-muted); opacity: 0.35; }
+.muted.small, .small { font-size: 0.78rem; }
+
+.travel-pick {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin-top: auto;
+}
+.travel-pick em { color: var(--ink); font-style: italic; }
+
+.scenarios {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-4);
+  margin: var(--s-5) 0 var(--s-7);
+}
+@media (min-width: 760px) {
+  .scenarios { grid-template-columns: 1fr 1fr; }
+}
+.scenario {
+  background: var(--red);
+  color: var(--cream);
+  padding: var(--s-5);
+  border-radius: var(--r-lg);
+}
+.scenario h4 {
+  color: var(--cream);
+  margin: 0 0 var(--s-2);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.005em;
+}
+.scenario p {
+  color: var(--cream);
+  margin: 0;
+  opacity: 0.92;
+  font-size: 0.95rem;
+}
+
 .callout {
   background: var(--cream);
   border-left: 3px solid var(--red);
