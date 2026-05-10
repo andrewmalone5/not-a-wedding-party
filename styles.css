@@ -505,6 +505,21 @@ ul.checklist li::before {
   max-width: var(--maxw-narrow);
 }
 
+/* ---------- Venue video ------------------------------------ */
+
+.venue-video {
+  margin-bottom: var(--s-7);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+.venue-video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
 /* ---------- Layout primitives ------------------------------ */
 
 .two-col {
