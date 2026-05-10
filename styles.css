@@ -233,10 +233,8 @@ ul.checklist li::before {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(250, 241, 221, 0.92);
-  backdrop-filter: saturate(140%) blur(8px);
-  -webkit-backdrop-filter: saturate(140%) blur(8px);
-  border-bottom: 1px solid var(--line);
+  background: var(--red);
+  border-bottom: 1px solid rgba(168, 43, 45, 0.6);
   display: flex;
   align-items: center;
   gap: var(--s-5);
@@ -247,7 +245,7 @@ ul.checklist li::before {
   font-family: var(--font-script);
   font-size: 1.5rem;
   text-decoration: none;
-  color: var(--red);
+  color: var(--cream);
   line-height: 1;
   flex-shrink: 0;
   padding-bottom: 4px;
@@ -270,7 +268,7 @@ ul.checklist li::before {
 }
 
 .site-nav a {
-  color: var(--ink-soft);
+  color: rgba(242, 231, 210, 0.8);
   text-decoration: none;
   font-size: 0.92rem;
   font-weight: 500;
@@ -279,8 +277,8 @@ ul.checklist li::before {
   transition: color 0.15s, border-color 0.15s;
 }
 .site-nav a:hover {
-  color: var(--red);
-  border-bottom-color: var(--red);
+  color: var(--cream);
+  border-bottom-color: var(--cream);
 }
 
 /* ---------- Hero ------------------------------------------- */
