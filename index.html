@@ -21,6 +21,9 @@
 
 <header class="site-nav" aria-label="Section navigation">
   <a class="brand" href="#top">A &amp; T</a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <nav>
     <ul>
       <li><a href="#story">Story</a></li>
@@ -344,5 +347,21 @@
 
 </main>
 
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav    = document.querySelector('.site-nav nav');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
 </body>
 </html>
