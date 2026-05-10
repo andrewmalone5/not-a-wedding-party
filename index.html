@@ -175,7 +175,7 @@
             <li>5 Sept: sunrise ~6:45am, sunset ~8pm</li>
           </ul>
           <div class="weather-live" id="weather-live" aria-live="polite">
-            <p class="practical-soon">Live forecast for Belfast loading…</p>
+            <p class="practical-soon">Loading the forecast for the day…</p>
           </div>
         </article>
 
@@ -434,11 +434,17 @@
 </script>
 
 <script>
-  // Live Belfast weather, via Open-Meteo (no API key, no tracking).
-  // Fails silently if anything goes wrong — climatology copy stays as fallback.
+  // Forecast for 5 September 2026, via Open-Meteo (no API key).
+  // Within ~14 days of the event we show the live forecast; before
+  // then we average the last 5 Septembers in Belfast to give a feel
+  // for what the day usually looks like. Fails silently on any error.
   (async function () {
     const target = document.getElementById('weather-live');
     if (!target) return;
+
+    const EVENT_ISO = '2026-09-05';
+    const LAT = 54.5973, LON = -5.9301;
+    const FORECAST_HORIZON_DAYS = 14;
 
     const codeMap = {
       0: 'Clear', 1: 'Mostly clear', 2: 'Partly cloudy', 3: 'Cloudy',
@@ -450,40 +456,81 @@
       95: 'Thunderstorm', 96: 'Thunderstorm', 99: 'Thunderstorm',
     };
 
-    try {
-      const url = 'https://api.open-meteo.com/v1/forecast'
-        + '?latitude=54.5973&longitude=-5.9301'
-        + '&current_weather=true'
-        + '&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode'
-        + '&timezone=Europe%2FLondon&forecast_days=5';
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('weather fetch failed');
-      const data = await res.json();
+    const eventDate = new Date(EVENT_ISO + 'T12:00:00');
+    const today     = new Date();
+    today.setHours(0, 0, 0, 0);
+    const daysUntil = Math.ceil((eventDate - today) / 86400000);
 
-      const cur = data.current_weather;
-      const days = data.daily;
-      const dayNames = days.time.map(t =>
-        new Date(t).toLocaleDateString('en-GB', { weekday: 'short' })
-      );
-
-      const dayCells = days.time.slice(0, 5).map((t, i) => `
-        <div class="weather-live-day">
-          <div class="weather-live-day-name">${dayNames[i]}</div>
-          <div class="weather-live-day-temp">${Math.round(days.temperature_2m_max[i])}° / ${Math.round(days.temperature_2m_min[i])}°</div>
-          <div class="weather-live-day-precip">${days.precipitation_probability_max[i] || 0}% rain</div>
-        </div>
-      `).join('');
-
+    const renderForecast = (d) => {
+      const max  = Math.round(d.temperature_2m_max[0]);
+      const min  = Math.round(d.temperature_2m_min[0]);
+      const cond = codeMap[d.weathercode[0]] || '';
+      const rain = d.precipitation_probability_max[0] ?? 0;
       target.innerHTML = `
-        <p class="weather-live-eyebrow">Belfast right now</p>
-        <div class="weather-live-current">
-          <span class="weather-live-temp">${Math.round(cur.temperature)}°C</span>
-          <span class="weather-live-condition">${codeMap[cur.weathercode] || ''}</span>
-        </div>
-        <div class="weather-live-forecast">${dayCells}</div>
+        <p class="weather-day-eyebrow">The day itself · live forecast</p>
+        <p class="weather-day-date">Saturday 5 September 2026</p>
+        <p class="weather-day-temp">${max}° / ${min}°C</p>
+        <p class="weather-day-cond">${cond}</p>
+        <p class="weather-day-rain">${rain}% chance of rain</p>
       `;
+    };
+
+    const renderHistorical = (avgMax, avgMin, rainPct, sampleYears) => {
+      target.innerHTML = `
+        <p class="weather-day-eyebrow">The day itself · early-September average</p>
+        <p class="weather-day-date">Saturday 5 September 2026</p>
+        <p class="weather-day-temp">${avgMax}° / ${avgMin}°C</p>
+        <p class="weather-day-rain">${rainPct}% of those days had rain</p>
+        <p class="weather-day-source">Based on the last ${sampleYears} Septembers in Belfast. Live forecast appears here ${FORECAST_HORIZON_DAYS} days before the event.</p>
+      `;
+    };
+
+    // Live forecast path
+    if (daysUntil >= 0 && daysUntil <= FORECAST_HORIZON_DAYS) {
+      try {
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&start_date=${EVENT_ISO}&end_date=${EVENT_ISO}&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode&timezone=Europe%2FLondon`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('forecast fetch failed');
+        const data = await res.json();
+        if (data.daily && data.daily.time && data.daily.time.length) {
+          renderForecast(data.daily);
+          return;
+        }
+        throw new Error('forecast empty');
+      } catch (e) {
+        // fall through to historical
+      }
+    }
+
+    // Historical average path — pull last 5 Septembers, days 3–7
+    try {
+      const eventYear = 2026;
+      const years = [eventYear - 5, eventYear - 4, eventYear - 3, eventYear - 2, eventYear - 1];
+      const calls = years.map(y =>
+        fetch(`https://archive-api.open-meteo.com/v1/archive?latitude=${LAT}&longitude=${LON}&start_date=${y}-09-03&end_date=${y}-09-07&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=Europe%2FLondon`)
+          .then(r => r.ok ? r.json() : null)
+          .catch(() => null)
+      );
+      const datasets = await Promise.all(calls);
+
+      const max = [], min = [], precip = [];
+      let yearsUsed = 0;
+      datasets.forEach(d => {
+        if (!d || !d.daily) return;
+        yearsUsed++;
+        d.daily.temperature_2m_max.forEach(v => v != null && max.push(v));
+        d.daily.temperature_2m_min.forEach(v => v != null && min.push(v));
+        d.daily.precipitation_sum.forEach(v => v != null && precip.push(v));
+      });
+      if (!max.length) throw new Error('no archive data');
+
+      const avg = a => a.reduce((s, v) => s + v, 0) / a.length;
+      const avgMax  = Math.round(avg(max));
+      const avgMin  = Math.round(avg(min));
+      const rainPct = Math.round((precip.filter(v => v > 0.5).length / precip.length) * 100);
+      renderHistorical(avgMax, avgMin, rainPct, yearsUsed);
     } catch (e) {
-      target.innerHTML = '<p class="practical-soon">Live forecast unavailable right now.</p>';
+      target.innerHTML = '<p class="practical-soon">Forecast for the day unavailable right now — check back closer to September.</p>';
     }
   })();
 </script>
