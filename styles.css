@@ -535,72 +535,92 @@ ul.checklist li::before {
   background: #fff;
 }
 
-/* ---------- Story photos ----------------------------------- */
+/* ---------- Story grid ------------------------------------- */
 
-.story-photo {
-  margin: var(--s-7) 0;
-  padding: var(--s-3) var(--s-3) var(--s-5);
-  background: var(--cream);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  box-shadow:
-    0 1px 1px rgba(26, 15, 16, 0.04),
-    0 6px 18px rgba(26, 15, 16, 0.10),
-    0 16px 40px rgba(26, 15, 16, 0.08);
-  position: relative;
-}
-
-.story-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 1px;
-}
-
-.story-photo figcaption {
-  font-family: var(--font-script);
-  font-size: 1.6rem;
-  color: var(--red-deep);
-  text-align: center;
-  margin-top: var(--s-3);
-  line-height: 1;
-}
-
-.story-photo-hero {
-  /* break out of the narrow container slightly for emphasis */
-  margin-left: calc(var(--s-5) * -1);
-  margin-right: calc(var(--s-5) * -1);
-  padding: var(--s-4) var(--s-4) var(--s-5);
-}
-@media (min-width: 760px) {
-  .story-photo-hero {
-    margin-left: calc(var(--s-7) * -1);
-    margin-right: calc(var(--s-7) * -1);
-  }
-}
-
-.story-photo-pair {
+.story-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--s-6);
-  margin: var(--s-7) 0;
+  gap: var(--s-5);
 }
-@media (min-width: 600px) {
-  .story-photo-pair {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--s-5);
+
+@media (min-width: 860px) {
+  .story-grid {
+    grid-template-columns: 1fr 1.4fr 1.15fr;
+    grid-template-rows: 300px 300px;
+    grid-template-areas:
+      "left mid text"
+      "left mid text";
+    align-items: stretch;
   }
 }
 
-.story-photo-pair .story-photo {
+/* Left: tall portrait photo */
+.story-col-left {
   margin: 0;
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  border-radius: var(--r-lg);
 }
-@media (min-width: 600px) {
-  .story-photo-tilt-left  { transform: rotate(-1.5deg); }
-  .story-photo-tilt-right { transform: rotate(1.5deg); }
-  .story-photo-pair .story-photo:hover { transform: rotate(0); }
+@media (min-width: 860px) {
+  .story-col-left {
+    grid-area: left;
+  }
 }
+.story-col-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  min-height: 380px;
+}
+@media (min-width: 860px) {
+  .story-col-left img { min-height: unset; }
+}
+
+/* Middle: two stacked photos */
+.story-col-mid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--s-4);
+}
+@media (min-width: 860px) {
+  .story-col-mid {
+    grid-area: mid;
+  }
+}
+
+.story-mid-photo {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+}
+.story-mid-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 220px;
+}
+@media (min-width: 860px) {
+  .story-mid-photo img { min-height: unset; }
+}
+
+/* Right: text */
+.story-col-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--s-5) 0;
+}
+@media (min-width: 860px) {
+  .story-col-text {
+    grid-area: text;
+    padding: var(--s-4) 0 var(--s-4) var(--s-6);
+    border-left: 1px solid var(--line);
+  }
+}
+.story-col-text h2 { margin-top: 0; }
+.story-col-text p:last-child { margin-bottom: 0; }
 
 /* ---------- Phrases dl ------------------------------------- */
 
