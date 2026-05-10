@@ -255,13 +255,11 @@ ul.checklist li::before {
 }
 
 .brand-icon {
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
   flex-shrink: 0;
-  display: inline-block;
-  background-color: currentColor;
-  -webkit-mask: url("assets/favicon/favicon.svg") center / contain no-repeat;
-  mask: url("assets/favicon/favicon.svg") center / contain no-repeat;
+  display: block;
+  overflow: visible;
 }
 
 .site-nav nav {
