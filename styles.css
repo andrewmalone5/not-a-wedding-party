@@ -616,7 +616,6 @@ ul.checklist li::before {
   .story-col-text {
     grid-area: text;
     padding: var(--s-5) 0 var(--s-5) var(--s-7);
-    border-left: 1px solid var(--line);
   }
 }
 .story-col-text h2 {
