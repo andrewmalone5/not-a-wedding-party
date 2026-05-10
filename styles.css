@@ -356,9 +356,9 @@ ul.checklist li::before {
 .hero {
   min-height: 100vh;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding: var(--s-8) var(--s-5) calc(var(--s-9) + 80px);
+  padding: var(--s-8) var(--s-5);
   text-align: left;
   background: var(--red);
   color: var(--cream);
@@ -374,24 +374,25 @@ ul.checklist li::before {
   z-index: 2;
 }
 
-/* Cocktail glass illustration — sits behind the right side of the PARTY wordmark */
+/* Whiskey glass illustration — transparent PNG, sits behind the right side of the PARTY wordmark */
 .hero-glass {
   position: absolute;
-  top: 8%;
-  right: -10%;
-  width: min(620px, 65%);
+  top: 50%;
+  right: -8%;
+  transform: translateY(-50%);
+  width: min(660px, 62%);
   z-index: 0;
-  mix-blend-mode: lighten;
   pointer-events: none;
   user-select: none;
 }
 @media (max-width: 760px) {
   .hero-glass {
     top: auto;
-    bottom: -5%;
-    right: -20%;
-    width: 110%;
-    opacity: 0.7;
+    bottom: 0;
+    right: -10%;
+    transform: none;
+    width: 75%;
+    opacity: 0.35;
   }
 }
 
