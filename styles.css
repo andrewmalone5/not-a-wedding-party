@@ -242,6 +242,9 @@ ul.checklist li::before {
 }
 
 .site-nav .brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
   font-family: var(--font-script);
   font-size: 1.5rem;
   text-decoration: none;
@@ -249,6 +252,12 @@ ul.checklist li::before {
   line-height: 1;
   flex-shrink: 0;
   padding-bottom: 4px;
+}
+
+.brand-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
 }
 
 .site-nav nav {
