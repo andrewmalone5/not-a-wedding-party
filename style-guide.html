@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Style Guide — Andrew &amp; Tamlyn · Belfast Party</title>
+  <meta name="theme-color" content="#D63D3F" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-nav" aria-label="Style guide navigation">
+  <a class="brand" href="index.html">A &amp; T</a>
+  <nav>
+    <ul>
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#palette">Palette</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#voice">Voice</a></li>
+      <li><a href="#components">Components</a></li>
+      <li><a href="#texture">Texture</a></li>
+      <li><a href="#illustration">Illustration</a></li>
+      <li><a href="#tokens">Tokens</a></li>
+      <li><a href="index.html">← back to site</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- Intro / brand mark ------------------------------------------------ -->
+  <section class="hero grain" id="intro">
+    <div class="hero-inner">
+      <p class="kicker">a style guide for</p>
+      <h1>Not a<br />Wedding<br />Party</h1>
+      <div class="hero-meta">
+        <div>
+          <p class="label">Visual identity</p>
+          <p class="sub">v1 · derived from save-the-date</p>
+        </div>
+        <p class="date">A &amp; T</p>
+        <div style="text-align:right">
+          <p class="label">Belfast · 05.09.26</p>
+          <p class="sub">cocktail-party energy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container narrow">
+      <p class="eyebrow">The brief</p>
+      <h2>One identity, two registers.</h2>
+      <p>The save-the-date set a clear direction: a saturated <strong>party red</strong> field with grainy paper texture, warm <strong>cream</strong> typography, and an etched cocktail illustration. The visual mood is <em>cocktail-party energy without the formality</em> — a confident modern serif paired with a soft hand-script, anchored by a single bold colour.</p>
+      <p>This guide extends that moment into a system the website can run on. Two registers carry it: a <strong>celebratory register</strong> (red surfaces, heavy display type, script accents) for hero, divider and footer moments — and a <strong>functional register</strong> (cream surfaces, dark warm ink, sans-serif body) for the long-read content guests actually rely on.</p>
+      <p>Default to the functional register. Use the celebratory register for moments that deserve it.</p>
+    </div>
+  </section>
+
+  <!-- Palette ------------------------------------------------------------ -->
+  <section class="band band-soft" id="palette">
+    <div class="container">
+      <p class="eyebrow">Palette</p>
+      <h2>One red. One cream. The rest earns its place.</h2>
+      <p class="lede">The system is built on two near-equal partners — <strong>party red</strong> and <strong>poster cream</strong> — supported by a warm dark ink and a small set of derivative tones for shadows, accents, and overlays.</p>
+
+      <div class="sg-grid">
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#D63D3F"></div>
+          <div class="swatch-meta">
+            <span class="name">Party Red</span>
+            <span class="hex">#D63D3F · --red</span>
+            <span class="role">Primary brand. Hero, footer, accents, primary buttons.</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#A82B2D"></div>
+          <div class="swatch-meta">
+            <span class="name">Red Deep</span>
+            <span class="hex">#A82B2D · --red-deep</span>
+            <span class="role">Hover, pressed, link underlines on cream.</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#6B1E20"></div>
+          <div class="swatch-meta">
+            <span class="name">Burgundy</span>
+            <span class="hex">#6B1E20 · --burgundy</span>
+            <span class="role">Deep accents. Dark text on cream when red feels too loud.</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#E89C92"></div>
+          <div class="swatch-meta">
+            <span class="name">Blush</span>
+            <span class="hex">#E89C92 · --blush</span>
+            <span class="role">Tinted illustration overlay. Use sparingly.</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#F2E7D2"></div>
+          <div class="swatch-meta">
+            <span class="name">Poster Cream</span>
+            <span class="hex">#F2E7D2 · --cream</span>
+            <span class="role">Primary on-red text. Card fills on cream.</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#FAF1DD"></div>
+          <div class="swatch-meta">
+            <span class="name">Cream Soft</span>
+            <span class="hex">#FAF1DD · --cream-soft</span>
+            <span class="role">Page background for body sections.</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#1A0F10"></div>
+          <div class="swatch-meta">
+            <span class="name">Ink</span>
+            <span class="hex">#1A0F10 · --ink</span>
+            <span class="role">Headings, primary body copy on cream.</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-fill" style="background:#5C3A3B"></div>
+          <div class="swatch-meta">
+            <span class="name">Ink Soft</span>
+            <span class="hex">#5C3A3B · --ink-soft</span>
+            <span class="role">Secondary copy, captions on cream.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h4>Rules of thumb</h4>
+        <ul>
+          <li><strong>Don't tint the red.</strong> Use it at full strength. If something feels too loud, change the layout, not the saturation.</li>
+          <li><strong>Cream beats white.</strong> Pure white cuts the warmth of the system; reach for cream-soft instead.</li>
+          <li><strong>Long-form copy lives on cream</strong> — never set more than 4–5 lines of body copy on red.</li>
+          <li><strong>Two colours, one accent.</strong> Treat anything beyond red + cream + ink as a once-per-page accent.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography --------------------------------------------------------- -->
+  <section class="band" id="typography">
+    <div class="container">
+      <p class="eyebrow">Typography</p>
+      <h2>A bold serif, a hand-script, and a quiet sans.</h2>
+      <p class="lede">Three families, each with one job. The display serif carries the moment, the script carries the warmth, and the sans carries everything you actually read.</p>
+
+      <div class="type-row">
+        <p class="label">Display · DM Serif Display</p>
+        <p class="sample" style="font-family:var(--font-display); font-size:clamp(3rem,9vw,7rem); line-height:0.9; margin:0;">Party</p>
+        <p class="muted" style="margin-top:.5em">High-contrast modern serif. Used for h1, h2, hero, big numerical date displays. Single weight (400, italic available).</p>
+      </div>
+
+      <div class="type-row">
+        <p class="label">Script · Allura</p>
+        <p class="sample script" style="font-size:clamp(2.5rem,7vw,5rem);">not a wedding</p>
+        <p class="muted" style="margin-top:.5em">Calligraphic accent. Used for the brand mark, kickers, flourishes, signoffs. <strong>Never set body copy in script.</strong> Never uppercase. Never below 1.5rem.</p>
+      </div>
+
+      <div class="type-row">
+        <p class="label">Body · DM Sans</p>
+        <p class="sample" style="font-family:var(--font-body); font-size:1.05rem;">A weekend to remember with the people we love. Doors open at 3pm. The party runs until 2am. Come ready to celebrate — there'll be food, drinks, music, and 11 hours of craic.</p>
+        <p class="muted" style="margin-top:.5em">All long-form text, navigation, labels, captions. Weights 400 / 500 / 600 / 700.</p>
+      </div>
+
+      <h3>Type scale</h3>
+      <div class="type-row">
+        <p class="label">H1 · clamp(3.5, 12vw, 9rem)</p>
+        <h1 style="margin:0">Party</h1>
+      </div>
+      <div class="type-row">
+        <p class="label">H2 · clamp(2, 4.5vw, 3.4rem)</p>
+        <h2 style="margin:0">Belfast, Saturday 5 September.</h2>
+      </div>
+      <div class="type-row">
+        <p class="label">H3 · clamp(1.4, 2.6vw, 1.8rem)</p>
+        <h3 style="margin:0">Where to stay</h3>
+      </div>
+      <div class="type-row">
+        <p class="label">Eyebrow · 0.78rem · 0.18em tracking · uppercase</p>
+        <p class="eyebrow" style="margin:0">The story behind us</p>
+      </div>
+      <div class="type-row">
+        <p class="label">Body · 17px / 1.65</p>
+        <p style="margin:0; max-width:60ch;">If you're coming from abroad, Dublin Airport is often the better-connected option, with more international routes. We suggest arriving 3 or 4 September.</p>
+      </div>
+      <div class="type-row">
+        <p class="label">Caption / muted</p>
+        <p class="muted" style="margin:0">Pack layers and bring something waterproof — you'll be grand.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voice -------------------------------------------------------------- -->
+  <section class="band band-soft" id="voice">
+    <div class="container narrow">
+      <p class="eyebrow">Voice</p>
+      <h2>Warm, direct, a little Belfast.</h2>
+      <p>Write the way you'd talk to a friend who's helping you plan. Confident, not formal. Specific, not corporate. A wee bit Northern Irish.</p>
+      <ul class="checklist">
+        <li><strong>Use contractions</strong> — "you'll", "we're", "don't". Formality kills the vibe.</li>
+        <li><strong>Drop in local idiom sparingly</strong> — "you'll be grand", "the craic", "wee" — once or twice per section, not every line.</li>
+        <li><strong>Lean into specificity</strong> — "£10–£15 from Belfast City Airport" beats "affordable taxis."</li>
+        <li><strong>Em-dashes, not semicolons</strong> — they fit the conversational tone.</li>
+        <li><strong>Avoid wedding-industrial language</strong> — no "nuptials", no "celebrating our union". This is a party, not a ceremony.</li>
+      </ul>
+      <p class="flourish">Bout ye? Keep 'er lit.</p>
+    </div>
+  </section>
+
+  <!-- Components --------------------------------------------------------- -->
+  <section class="band" id="components">
+    <div class="container">
+      <p class="eyebrow">Components</p>
+      <h2>The kit.</h2>
+
+      <h3>Eyebrow + heading</h3>
+      <div class="component-demo">
+        <p class="eyebrow">The party</p>
+        <h2 style="margin:0">Titanic Distillers, Thompson Dock</h2>
+      </div>
+
+      <h3>Date / number display</h3>
+      <p class="muted">For dates, addresses, and any single-figure moment that deserves the same gravity as the venue name.</p>
+      <div class="component-demo on-red">
+        <p style="font-family:var(--font-display); font-size:clamp(2.5rem,6vw,4.5rem); line-height:1; margin:0; color:var(--cream);">05.09.26</p>
+        <p class="kicker" style="color:var(--cream); font-size:2.2rem; margin-top:.4em;">save the date</p>
+      </div>
+
+      <h3>Buttons</h3>
+      <div class="component-demo">
+        <a class="btn btn-primary" href="#">Join the group house</a>
+        &nbsp;
+        <a class="btn btn-ghost" href="#">Read the guide</a>
+      </div>
+      <div class="component-demo on-red">
+        <a class="btn btn-on-red" href="#">Send us your flight details</a>
+      </div>
+
+      <h3>Card</h3>
+      <div class="component-demo">
+        <article class="card" style="margin:0">
+          <h4>Bus <span class="pill">Recommended</span></h4>
+          <p>The easiest and cheapest option. Aircoach runs a direct service from Dublin Airport to Belfast city centre.</p>
+          <p style="margin-bottom:0"><a href="#">Book on aircoach.ie ↗</a></p>
+        </article>
+      </div>
+
+      <h3>Card on red</h3>
+      <div class="component-demo on-red">
+        <aside class="card card-on-red" style="margin:0">
+          <h3 style="margin-top:0; color:var(--cream)">The plan</h3>
+          <ul class="plain">
+            <li><strong>Doors</strong> — 3pm</li>
+            <li><strong>Carriages</strong> — 2am</li>
+          </ul>
+          <p class="address" style="margin-bottom:0">Queen's Road, Belfast BT3 9DT</p>
+        </aside>
+      </div>
+
+      <h3>Callout</h3>
+      <div class="component-demo">
+        <aside class="callout" style="margin:0">
+          <h4>A note on the border</h4>
+          <p style="margin-bottom:0">There's no passport control between the Republic of Ireland and Northern Ireland — the main thing to be aware of is the currency change from Euros to GBP.</p>
+        </aside>
+      </div>
+
+      <h3>Checklist</h3>
+      <div class="component-demo">
+        <ul class="checklist" style="margin:0">
+          <li>UK travel adaptor (Type G, three-pin)</li>
+          <li>Valid passport or ID</li>
+          <li>Card set up for GBP transactions</li>
+          <li>Comfortable shoes — you'll be on your feet all night</li>
+        </ul>
+      </div>
+
+      <h3>Phrase list (definition)</h3>
+      <div class="component-demo">
+        <dl class="phrases" style="margin:0">
+          <dt>Bout ye?</dt><dd>Hello / How are you?</dd>
+          <dt>The craic's 90</dt><dd>It's an absolutely brilliant time</dd>
+          <dt>Keep her lit</dt><dd>Keep going / Don't stop now</dd>
+        </dl>
+      </div>
+
+      <h3>Flourish + signoff (script accents)</h3>
+      <div class="component-demo">
+        <p class="flourish" style="margin:0">Let's party in style.</p>
+      </div>
+      <div class="component-demo on-red">
+        <p class="signoff" style="margin:0">Nai… let's get some excitement going.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Texture ------------------------------------------------------------ -->
+  <section class="band band-red grain" id="texture">
+    <div class="container">
+      <p class="eyebrow on-red">Texture</p>
+      <h2>A wee bit of grain.</h2>
+      <p>The save-the-date has a soft paper-grain texture across the red field. We replicate this with a procedural SVG noise filter applied at low opacity (~18%) over red surfaces. It adds warmth without weight — no images to load.</p>
+      <ul class="checklist">
+        <li><strong>Apply via the <code style="font-family:'DM Mono',monospace;background:rgba(255,255,255,.08);padding:.1em .4em;border-radius:3px">.grain</code> class.</strong> It uses a <code style="font-family:'DM Mono',monospace;background:rgba(255,255,255,.08);padding:.1em .4em;border-radius:3px">::after</code> overlay with <code style="font-family:'DM Mono',monospace;background:rgba(255,255,255,.08);padding:.1em .4em;border-radius:3px">mix-blend-mode: multiply</code>.</li>
+        <li><strong>Only on red surfaces.</strong> On cream the grain reads as dirt rather than texture.</li>
+        <li><strong>Don't stack.</strong> One grain layer per section. Never on top of dense type — keep it on backgrounds and large fields.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Illustration ------------------------------------------------------- -->
+  <section class="band" id="illustration">
+    <div class="container">
+      <p class="eyebrow">Illustration</p>
+      <h2>Vintage etched, tinted, sparing.</h2>
+      <p class="lede">The poster's cocktail glass establishes the language: detailed engraved/etched line illustrations, often vintage botanical or barware references, tinted into the red field at reduced opacity so they read as a wash rather than a foreground subject.</p>
+      <div class="two-col">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Pick illustrations with strong line-work and visible cross-hatching.</li>
+            <li>Convert to a single colour (cream on red, or red on cream) — never full colour.</li>
+            <li>Use at 25–60% opacity so they sit behind type, not in front of it.</li>
+            <li>Theme around <em>cocktail bar / Belfast / Irish countryside</em> — glasses, citrus, botanicals, bridges, dock cranes.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Don't</h4>
+          <ul>
+            <li>Use modern flat-vector or 3D illustration. It will fight the system.</li>
+            <li>Mix illustration styles within a page.</li>
+            <li>Place illustrations behind body copy at high opacity — readability beats decoration.</li>
+            <li>Use generic stock wedding imagery (rings, doves, hearts in colour).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        <h4>Phase 2</h4>
+        <p style="margin-bottom:0">Illustration is currently a stretch goal. The site ships without it — typography, colour, and grain carry the identity until we have illustration assets we love. Public-domain etchings (Internet Archive, Old Book Illustrations) are a good starting point.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tokens reference --------------------------------------------------- -->
+  <section class="band band-soft" id="tokens">
+    <div class="container">
+      <p class="eyebrow">Reference</p>
+      <h2>Tokens.</h2>
+      <p class="lede">All design tokens live in <code style="font-family:'DM Mono',monospace;background:var(--cream-deep);padding:.1em .4em;border-radius:3px">:root</code> in <code style="font-family:'DM Mono',monospace;background:var(--cream-deep);padding:.1em .4em;border-radius:3px">styles.css</code>. Change a value there and it propagates across the site and this guide.</p>
+
+      <h3>Colour</h3>
+      <table class="token-table">
+        <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td>--red</td><td>#D63D3F</td><td>Primary brand red</td></tr>
+          <tr><td>--red-deep</td><td>#A82B2D</td><td>Hover, links on cream</td></tr>
+          <tr><td>--burgundy</td><td>#6B1E20</td><td>Deep accent</td></tr>
+          <tr><td>--blush</td><td>#E89C92</td><td>Tinted overlay</td></tr>
+          <tr><td>--cream</td><td>#F2E7D2</td><td>On-red text, card fills</td></tr>
+          <tr><td>--cream-soft</td><td>#FAF1DD</td><td>Body background</td></tr>
+          <tr><td>--cream-deep</td><td>#E8D9BC</td><td>Dividers, code wash</td></tr>
+          <tr><td>--ink</td><td>#1A0F10</td><td>Headings, body</td></tr>
+          <tr><td>--ink-soft</td><td>#5C3A3B</td><td>Secondary copy</td></tr>
+          <tr><td>--ink-muted</td><td>#8A6A6A</td><td>Captions</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Typography</h3>
+      <table class="token-table">
+        <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td>--font-display</td><td>'DM Serif Display', serif</td><td>h1–h3, display</td></tr>
+          <tr><td>--font-script</td><td>'Allura', cursive</td><td>Brand mark, flourishes</td></tr>
+          <tr><td>--font-body</td><td>'DM Sans', sans-serif</td><td>Body, nav, labels</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Spacing</h3>
+      <table class="token-table">
+        <thead><tr><th>Token</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>--s-1</td><td>0.25rem</td></tr>
+          <tr><td>--s-2</td><td>0.5rem</td></tr>
+          <tr><td>--s-3</td><td>0.75rem</td></tr>
+          <tr><td>--s-4</td><td>1rem</td></tr>
+          <tr><td>--s-5</td><td>1.5rem</td></tr>
+          <tr><td>--s-6</td><td>2rem</td></tr>
+          <tr><td>--s-7</td><td>3rem</td></tr>
+          <tr><td>--s-8</td><td>4rem</td></tr>
+          <tr><td>--s-9</td><td>6rem</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Layout</h3>
+      <table class="token-table">
+        <thead><tr><th>Token</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>--maxw</td><td>1080px</td></tr>
+          <tr><td>--maxw-narrow</td><td>720px</td></tr>
+          <tr><td>--r</td><td>4px</td></tr>
+          <tr><td>--r-lg</td><td>8px</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="site-footer grain">
+    <div class="container">
+      <p class="brand-large">Andrew &amp; Tamlyn</p>
+      <p class="muted">Style guide v1 · Belfast · 05.09.26</p>
+      <p class="muted small"><a href="index.html" style="color:var(--cream)">← back to the site</a></p>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>
