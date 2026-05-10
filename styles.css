@@ -185,6 +185,10 @@ li { margin-bottom: 0.4em; }
   max-width: 60ch;
   margin-bottom: var(--s-6);
 }
+.lede.on-red {
+  color: var(--cream);
+  opacity: 0.92;
+}
 
 .flourish {
   font-family: var(--font-script);
@@ -505,19 +509,103 @@ ul.checklist li::before {
   max-width: var(--maxw-narrow);
 }
 
-/* ---------- Venue video ------------------------------------ */
+/* ---------- The Party section ------------------------------ */
 
-.venue-video {
-  margin-bottom: var(--s-7);
+.party-feature {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-6);
+  margin-bottom: var(--s-9);
+}
+@media (min-width: 860px) {
+  .party-feature {
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--s-7);
+    align-items: start;
+  }
+}
+
+.party-feature-video {
+  aspect-ratio: 16 / 9;
   border-radius: var(--r-lg);
   overflow: hidden;
-  aspect-ratio: 16 / 9;
+  background: rgba(0, 0, 0, 0.18);
 }
-.venue-video iframe {
+.party-feature-video iframe {
   width: 100%;
   height: 100%;
   border: 0;
   display: block;
+}
+
+.party-feature-text { color: var(--cream); }
+.party-feature-text p { color: var(--cream); }
+.party-feature-text p:first-child { margin-top: 0; }
+.party-feature-text .address {
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--line-on-red);
+}
+
+.party-schedule {
+  padding-top: var(--s-7);
+  border-top: 1px solid var(--line-on-red);
+}
+.schedule-headline {
+  color: var(--cream);
+  max-width: 22ch;
+  margin-bottom: var(--s-4);
+}
+.schedule-note {
+  color: rgba(242, 231, 210, 0.78);
+  font-style: italic;
+  max-width: 60ch;
+  margin: 0 0 var(--s-7);
+}
+
+.schedule {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-4);
+  counter-reset: none;
+}
+@media (min-width: 760px) {
+  .schedule {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.schedule li {
+  list-style: none;
+  margin: 0;
+  padding: var(--s-5);
+  border: 1px solid var(--line-on-red);
+  border-radius: var(--r-lg);
+  background: rgba(168, 43, 45, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+.schedule-time {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  color: var(--cream);
+  line-height: 1;
+}
+.schedule-label {
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-top: var(--s-2);
+}
+.schedule-detail {
+  font-size: 0.92rem;
+  color: rgba(242, 231, 210, 0.8);
+  line-height: 1.5;
+  margin-top: auto;
 }
 
 /* ---------- Layout primitives ------------------------------ */
