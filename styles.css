@@ -656,9 +656,9 @@ ul.checklist li::before {
   grid-template-columns: 1fr;
   gap: var(--s-5);
 }
-@media (min-width: 760px) {
+@media (min-width: 900px) {
   .practicals-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--s-6);
   }
 }
