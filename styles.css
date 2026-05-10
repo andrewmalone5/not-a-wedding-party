@@ -395,7 +395,7 @@ ul.checklist li::before {
   transform: translateY(-50%);
   width: min(528px, 50%);
   z-index: 0;
-  opacity: 0.75;
+  opacity: 0.7;
   pointer-events: none;
   user-select: none;
 }
