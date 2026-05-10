@@ -377,11 +377,12 @@ ul.checklist li::before {
 /* Whiskey glass illustration — transparent PNG, sits behind the right side of the PARTY wordmark */
 .hero-glass {
   position: absolute;
-  top: 50%;
+  top: 44%;
   right: -8%;
   transform: translateY(-50%);
-  width: min(660px, 62%);
+  width: min(528px, 50%);
   z-index: 0;
+  opacity: 0.75;
   pointer-events: none;
   user-select: none;
 }
