@@ -785,46 +785,15 @@ ul.checklist li::before {
 
 .feature { background: transparent; }
 
-/* ---------- Getting here: airports, options, scenarios ----- */
+/* ---------- Getting here: options, scenarios --------------- */
 
-.airport-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--s-4);
-  margin: var(--s-5) 0 var(--s-8);
-}
-@media (min-width: 760px) {
-  .airport-grid { grid-template-columns: repeat(3, 1fr); }
-}
-.airport-card {
-  background: var(--cream);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  padding: var(--s-5);
-}
-.airport-card h4 {
-  margin: 0 0 var(--s-3);
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5em;
-}
-.airport-card p { margin-bottom: var(--s-3); }
-.airport-card p:last-child { margin-bottom: 0; }
-.airport-card .meta {
-  font-size: 0.85rem;
-  color: var(--ink-muted);
-  font-style: italic;
-}
-.airport-code {
-  font-family: 'DM Mono', ui-monospace, monospace;
-  font-size: 0.7rem;
-  background: var(--ink);
-  color: var(--cream);
-  padding: 0.2em 0.5em;
-  border-radius: 3px;
-  letter-spacing: 0.08em;
-  font-weight: 500;
+.travel-footnote {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  max-width: 70ch;
+  margin: 0 0 var(--s-8);
+  padding: var(--s-4) 0 0;
+  border-top: 1px dashed var(--line);
 }
 
 .travel-options {
