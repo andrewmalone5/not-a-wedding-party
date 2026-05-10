@@ -649,6 +649,126 @@ ul.checklist li::before {
   .two-col-list li { break-inside: avoid; }
 }
 
+/* ---------- Practicals (dress, weather, packing, FYI) ------ */
+
+.practicals-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-5);
+}
+@media (min-width: 760px) {
+  .practicals-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-6);
+  }
+}
+
+.practical-card {
+  background: var(--cream-deep);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: var(--s-6);
+  display: flex;
+  flex-direction: column;
+}
+.practical-card > *:last-child { margin-bottom: 0; }
+
+.practical-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red-deep);
+  font-weight: 700;
+  margin: 0 0 var(--s-3);
+}
+.practical-card h3 {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  margin: 0 0 var(--s-4);
+  line-height: 1.15;
+}
+.practical-card p { color: var(--ink-soft); }
+.practical-card p strong { color: var(--ink); }
+
+.practical-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.practical-list li {
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--line);
+  margin: 0;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.practical-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+.practical-list li strong { color: var(--ink); }
+
+.practical-soon {
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  margin: var(--s-3) 0 0;
+}
+
+/* Live weather widget inside the weather card */
+.weather-live {
+  margin-top: var(--s-5);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line);
+}
+.weather-live-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 700;
+  margin: 0 0 var(--s-2);
+}
+.weather-live-current {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+}
+.weather-live-temp {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--ink);
+  line-height: 1;
+}
+.weather-live-condition {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.weather-live-forecast {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--s-2);
+}
+.weather-live-day { text-align: center; }
+.weather-live-day-name {
+  font-weight: 700;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+}
+.weather-live-day-temp {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--ink);
+  line-height: 1;
+}
+.weather-live-day-precip {
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+
 /* ---------- Cards / callouts ------------------------------- */
 
 .card {

@@ -152,31 +152,60 @@
 
   <section class="band">
     <div class="container">
-      <p class="eyebrow">Dress code &amp; weather</p>
-      <h2>Smart casual to dressy. Cocktail-party energy, none of the formality.</h2>
-      <div class="two-col">
-        <div>
-          <ul class="checklist">
-            <li>A fun dress, a nice shirt with jeans, or whatever makes you feel great.</li>
-            <li>Colour, prints, sequins — this is a party, so go wild if you wish.</li>
-            <li>Comfortable shoes. You'll be on your feet all night.</li>
-            <li>Bring a layer for the walk to and from the venue and unpredictable Belfast weather.</li>
-            <li>Come dressed to celebrate. There are no wrong answers.</li>
-          </ul>
-          <p>We want you to feel brilliant and comfortable enough to dance until 2am.</p>
-        </div>
-        <aside class="card">
-          <h3>Early September in Belfast</h3>
-          <p class="muted">Crisp, golden, and occasionally showery. Pack layers and bring something waterproof — you'll be grand.</p>
-          <ul class="plain">
+      <p class="eyebrow">Before you come</p>
+      <h2>The practicals — what to pack, wear, and expect.</h2>
+      <p class="lede">Most of you are flying in, and Belfast can surprise you (in good and damp ways). Here's everything we think you'll want to know.</p>
+
+      <div class="practicals-grid">
+
+        <article class="practical-card">
+          <p class="practical-eyebrow">Dress code</p>
+          <h3>Still being decided.</h3>
+          <p>We're working on it. The short version: think <em>cocktail-party energy, no formality</em> — comfortable enough to dance until 2am, dressy enough to feel the occasion.</p>
+          <p class="practical-soon">Final word coming closer to the date.</p>
+        </article>
+
+        <article class="practical-card">
+          <p class="practical-eyebrow">Weather</p>
+          <h3>Crisp, golden, occasionally showery.</h3>
+          <ul class="practical-list">
             <li>Daytime highs around <strong>16°C</strong></li>
             <li>Evenings drop to <strong>9–10°C</strong></li>
             <li>4–6 hours of sunshine on good days</li>
-            <li>Expect a shower or two across the weekend</li>
             <li>5 Sept: sunrise ~6:45am, sunset ~8pm</li>
           </ul>
-          <p class="muted">A warm afternoon to explore the city, then a cosy evening inside. A light jacket and you're sorted.</p>
-        </aside>
+          <div class="weather-live" id="weather-live" aria-live="polite">
+            <p class="practical-soon">Live forecast for Belfast loading…</p>
+          </div>
+        </article>
+
+        <article class="practical-card">
+          <p class="practical-eyebrow">What to pack</p>
+          <h3>Especially if you're flying in.</h3>
+          <ul class="checklist">
+            <li>A <strong>UK plug adapter</strong> (Type G, three flat pins)</li>
+            <li>Some <strong>pounds sterling</strong> — Northern Ireland uses GBP, not euros</li>
+            <li>A <strong>waterproof layer</strong> and warm jacket for evenings</li>
+            <li>Comfortable shoes — for cobbles, dancing, and the walk to the venue</li>
+            <li>Phone charger and a battery pack</li>
+            <li>Sunglasses (yes, really — September can deliver)</li>
+            <li>Travel insurance documents</li>
+          </ul>
+        </article>
+
+        <article class="practical-card">
+          <p class="practical-eyebrow">Good to know</p>
+          <h3>Quick facts about the place.</h3>
+          <ul class="practical-list">
+            <li><strong>Currency</strong> — Pounds sterling (£). NI is part of the UK, not the eurozone.</li>
+            <li><strong>Plugs</strong> — UK Type G, 230V. EU plugs need an adapter.</li>
+            <li><strong>Time zone</strong> — BST (GMT+1) in September.</li>
+            <li><strong>Driving</strong> — Left-hand side. Most of you won't need to.</li>
+            <li><strong>Tipping</strong> — 10% in restaurants is standard. Pubs no, taxis round up.</li>
+            <li><strong>Mobile</strong> — UK and EU plans usually roam fine. Check with your provider.</li>
+          </ul>
+        </article>
+
       </div>
     </div>
   </section>
@@ -402,6 +431,61 @@
       toggle.setAttribute('aria-expanded', false);
     });
   });
+</script>
+
+<script>
+  // Live Belfast weather, via Open-Meteo (no API key, no tracking).
+  // Fails silently if anything goes wrong — climatology copy stays as fallback.
+  (async function () {
+    const target = document.getElementById('weather-live');
+    if (!target) return;
+
+    const codeMap = {
+      0: 'Clear', 1: 'Mostly clear', 2: 'Partly cloudy', 3: 'Cloudy',
+      45: 'Foggy', 48: 'Foggy',
+      51: 'Light drizzle', 53: 'Drizzle', 55: 'Heavy drizzle',
+      61: 'Light rain', 63: 'Rain', 65: 'Heavy rain',
+      71: 'Light snow', 73: 'Snow', 75: 'Heavy snow',
+      80: 'Showers', 81: 'Showers', 82: 'Heavy showers',
+      95: 'Thunderstorm', 96: 'Thunderstorm', 99: 'Thunderstorm',
+    };
+
+    try {
+      const url = 'https://api.open-meteo.com/v1/forecast'
+        + '?latitude=54.5973&longitude=-5.9301'
+        + '&current_weather=true'
+        + '&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode'
+        + '&timezone=Europe%2FLondon&forecast_days=5';
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('weather fetch failed');
+      const data = await res.json();
+
+      const cur = data.current_weather;
+      const days = data.daily;
+      const dayNames = days.time.map(t =>
+        new Date(t).toLocaleDateString('en-GB', { weekday: 'short' })
+      );
+
+      const dayCells = days.time.slice(0, 5).map((t, i) => `
+        <div class="weather-live-day">
+          <div class="weather-live-day-name">${dayNames[i]}</div>
+          <div class="weather-live-day-temp">${Math.round(days.temperature_2m_max[i])}° / ${Math.round(days.temperature_2m_min[i])}°</div>
+          <div class="weather-live-day-precip">${days.precipitation_probability_max[i] || 0}% rain</div>
+        </div>
+      `).join('');
+
+      target.innerHTML = `
+        <p class="weather-live-eyebrow">Belfast right now</p>
+        <div class="weather-live-current">
+          <span class="weather-live-temp">${Math.round(cur.temperature)}°C</span>
+          <span class="weather-live-condition">${codeMap[cur.weathercode] || ''}</span>
+        </div>
+        <div class="weather-live-forecast">${dayCells}</div>
+      `;
+    } catch (e) {
+      target.innerHTML = '<p class="practical-soon">Live forecast unavailable right now.</p>';
+    }
+  })();
 </script>
 </body>
 </html>
