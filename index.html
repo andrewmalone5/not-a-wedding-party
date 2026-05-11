@@ -153,38 +153,30 @@
   <section class="band">
     <div class="container">
       <p class="eyebrow">Before you come</p>
-      <h2>A quick guide for the weekend.</h2>
-      <p class="lede">A few short notes to make your trip easy — nothing scary, just so you arrive sorted.</p>
+      <h2>What you'll want to know.</h2>
 
       <div class="practicals-grid">
 
-        <article class="practical-card">
-          <p class="practical-eyebrow">Dress code</p>
-          <h3>Still being decided.</h3>
-          <p>We're working on it. The short version: think <em>cocktail-party energy, no formality</em> — comfortable enough to dance until 2am, dressy enough to feel the occasion.</p>
-          <p class="practical-soon">Final word coming closer to the date.</p>
-        </article>
-
-        <article class="practical-card">
+        <article class="practical-card practical-weather">
           <p class="practical-eyebrow">Weather</p>
-          <h3>Crisp, golden, occasionally showery.</h3>
-          <ul class="practical-list">
-            <li>Daytime highs around <strong>16°C</strong></li>
-            <li>Evenings drop to <strong>9–10°C</strong></li>
-            <li>5 Sept: sunrise ~6:45am, sunset ~8pm</li>
-          </ul>
           <div class="weather-live" id="weather-live" aria-live="polite">
             <p class="practical-soon">Loading the forecast for the day…</p>
           </div>
+          <p class="weather-context">Typical early September in Belfast: crisp days around <strong>16°C</strong>, evenings drop to <strong>9–10°C</strong>. Sunrise ~6:45am, sunset ~8pm.</p>
         </article>
 
-        <article class="practical-card">
+        <article class="practical-card practical-dress">
+          <p class="practical-eyebrow">Dress code</p>
+          <h3>Still being decided.</h3>
+          <p>Cocktail-party energy, no formality. We'll lock it in closer to the date.</p>
+        </article>
+
+        <article class="practical-card practical-pack">
           <p class="practical-eyebrow">What to pack</p>
-          <h3>Just so you don't forget.</h3>
           <ul class="checklist">
-            <li>A <strong>UK plug adapter</strong> (Type G, three flat pins)</li>
-            <li>Comfortable shoes — for cobbles, dancing, and the walk to the venue</li>
-            <li>Sunglasses (yes, really — September can deliver)</li>
+            <li><strong>UK plug adapter</strong> — Type G, three flat pins</li>
+            <li><strong>Comfortable shoes</strong> — for cobbles, dancing, and the walk to the venue</li>
+            <li><strong>Sunglasses</strong> — yes, really. September can deliver.</li>
           </ul>
         </article>
 
@@ -526,7 +518,7 @@
         <p class="weather-day-date">Saturday 5 September 2026</p>
         <p class="weather-day-temp">${avgMax}° / ${avgMin}°C</p>
         <p class="weather-day-rain">${rainPct}% had a passing shower</p>
-        <p class="weather-day-source">Based on the last ${sampleYears} Septembers in Belfast. Live forecast appears here ${FORECAST_HORIZON_DAYS} days before the event.</p>
+        <p class="weather-day-source">Average of the last ${sampleYears} Septembers. Live forecast appears here as the day approaches.</p>
       `;
     };
 
