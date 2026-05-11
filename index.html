@@ -195,13 +195,22 @@
   <section id="travel" class="band band-soft">
     <div class="container">
       <p class="eyebrow">Getting here</p>
-      <h2>Fly into Dublin, then make your way north.</h2>
-      <p class="lede">Most of you are coming from <strong>Berlin</strong>, and <strong>Dublin Airport</strong> is by far the cheapest and best-connected way in. From there it's about two hours overland to Belfast. We'd suggest arriving <strong>3 or 4 September</strong> and flying home from <strong>6 September</strong> onwards.</p>
+      <h2>Two starting points.</h2>
+      <p class="lede">Pick where you're coming from.</p>
 
-      <p class="travel-footnote"><em>Belfast does have two small airports of its own (BFS and BHD), but for Berlin and most of Europe, Dublin will almost always be cheaper with more options.</em></p>
+      <div class="travel-tabs" role="tablist" aria-label="Where are you starting from?">
+        <button class="travel-tab is-active" id="tab-abroad" data-tab="abroad" role="tab" aria-selected="true" aria-controls="panel-abroad">Coming from abroad</button>
+        <button class="travel-tab" id="tab-ireland" data-tab="ireland" role="tab" aria-selected="false" aria-controls="panel-ireland">Already in Ireland</button>
+      </div>
 
-      <h3>How to get to Belfast — and how far you can roam</h3>
-      <p>Three trade-offs to weigh: <strong>cost</strong>, <strong>flexibility</strong> (can you go beyond Belfast?), and <strong>ease</strong> (door-to-door simplicity).</p>
+      <div class="travel-panel" id="panel-abroad" data-panel="abroad" role="tabpanel" aria-labelledby="tab-abroad">
+        <h3>Fly into Dublin, then make your way north.</h3>
+        <p>Most of you are coming from <strong>Berlin</strong>, and <strong>Dublin Airport</strong> is by far the cheapest and best-connected way in. From there it's about two hours overland to Belfast. We'd suggest arriving <strong>3 or 4 September</strong> and flying home from <strong>6 September</strong> onwards.</p>
+
+        <p class="travel-footnote"><em>Belfast does have two small airports of its own (BFS and BHD), but for Berlin and most of Europe, Dublin will almost always be cheaper with more options.</em></p>
+
+        <h4 class="travel-subheading">From Dublin to Belfast — and how far you can roam</h4>
+        <p>Three trade-offs to weigh: <strong>cost</strong>, <strong>flexibility</strong> (can you go beyond Belfast?), and <strong>ease</strong> (door-to-door simplicity).</p>
 
       <div class="travel-options">
         <article class="travel-option">
@@ -239,25 +248,68 @@
 
       </div>
 
-      <h3>Quick picks for the trip you've planned</h3>
+        <h4 class="travel-subheading">Quick picks for the trip you've planned</h4>
 
-      <div class="scenarios">
-        <article class="scenario">
-          <h4>Just here for the party</h4>
-          <p>Fly into Dublin and take the Aircoach straight up to Belfast.</p>
-        </article>
-        <article class="scenario">
-          <h4>Belfast + a few days in Dublin</h4>
-          <p>Fly into Dublin, take the Enterprise train up, fly home from Dublin.</p>
-        </article>
-        <article class="scenario">
-          <h4>Road-tripping the island</h4>
-          <p>Hire a car. The Causeway Coast, Donegal, and Galway are all in reach — and the drive itself is half the fun.</p>
-        </article>
-        <article class="scenario">
-          <h4>Coming as a group of 3+</h4>
-          <p>Hire car wins on cost-per-head and gives you the most freedom for day trips.</p>
-        </article>
+        <div class="scenarios">
+          <article class="scenario">
+            <h4>Just here for the party</h4>
+            <p>Fly into Dublin and take the Aircoach straight up to Belfast.</p>
+          </article>
+          <article class="scenario">
+            <h4>Belfast + a few days in Dublin</h4>
+            <p>Fly into Dublin, take the Enterprise train up, fly home from Dublin.</p>
+          </article>
+          <article class="scenario">
+            <h4>Road-tripping the island</h4>
+            <p>Hire a car. The Causeway Coast, Donegal, and Galway are all in reach — and the drive itself is half the fun.</p>
+          </article>
+          <article class="scenario">
+            <h4>Coming as a group of 3+</h4>
+            <p>Hire car wins on cost-per-head and gives you the most freedom for day trips.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="travel-panel" id="panel-ireland" data-panel="ireland" role="tabpanel" aria-labelledby="tab-ireland" hidden>
+        <h3>Belfast is two hours from Dublin.</h3>
+        <p>If you're already on the island, getting up is the easy bit. Train, car, or coach — all comfortable, all about the same time door to door.</p>
+
+        <h4 class="travel-subheading">How to get to Belfast</h4>
+
+        <div class="travel-options">
+          <article class="travel-option">
+            <h4>Enterprise train <span class="pill">Easiest</span></h4>
+            <p>Dublin Connolly to Belfast Lanyon Place in about two hours. City centre to city centre, no hassle.</p>
+            <dl class="travel-stats">
+              <div><dt>Cost</dt><dd><span class="cost-meter">££</span><span class="cost-meter dim">£</span></dd></div>
+              <div><dt>Time</dt><dd>~2 hours, direct</dd></div>
+              <div><dt>Ease</dt><dd>Sit back, look out the window</dd></div>
+            </dl>
+            <p class="travel-pick"><em>Pick if you're starting from Dublin and don't fancy driving.</em></p>
+          </article>
+
+          <article class="travel-option">
+            <h4>Drive (M1 / A1)</h4>
+            <p>Straight up the M1 motorway from Dublin to Belfast, becoming the A1 once you cross. About two hours door to door — longer if you stop in Newry for chips.</p>
+            <dl class="travel-stats">
+              <div><dt>Cost</dt><dd>Fuel + the M50 toll</dd></div>
+              <div><dt>Time</dt><dd>~2 hours from Dublin</dd></div>
+              <div><dt>Ease</dt><dd>Easy drive, mostly motorway</dd></div>
+            </dl>
+            <p class="travel-pick"><em>Pick if you have a car or want the freedom for day trips.</em></p>
+          </article>
+
+          <article class="travel-option">
+            <h4>Aircoach</h4>
+            <p>Direct coach from Dublin city centre or Dublin Airport to Belfast. Cheapest option and runs late.</p>
+            <dl class="travel-stats">
+              <div><dt>Cost</dt><dd><span class="cost-meter">£</span><span class="cost-meter dim">££</span></dd></div>
+              <div><dt>Time</dt><dd>~2 hours</dd></div>
+              <div><dt>Ease</dt><dd>Walk on, sit down</dd></div>
+            </dl>
+            <p class="travel-pick"><em>Pick if you want the cheapest, simplest option.</em> <a href="https://www.aircoach.ie" target="_blank" rel="noopener noreferrer">aircoach.ie ↗</a></p>
+          </article>
+        </div>
       </div>
 
       <aside class="callout">
@@ -407,6 +459,21 @@
       nav.classList.remove('open');
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // Getting Here tabs
+  document.querySelectorAll('.travel-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.travel-tab').forEach(t => {
+        const active = t.dataset.tab === target;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', active);
+      });
+      document.querySelectorAll('.travel-panel').forEach(p => {
+        p.hidden = p.dataset.panel !== target;
+      });
     });
   });
 </script>

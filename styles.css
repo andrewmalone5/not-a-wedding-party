@@ -785,7 +785,48 @@ ul.checklist li::before {
 
 .feature { background: transparent; }
 
-/* ---------- Getting here: options, scenarios --------------- */
+/* ---------- Getting here: tabs, options, scenarios --------- */
+
+.travel-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1);
+  margin: var(--s-5) 0 var(--s-6);
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+}
+.travel-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: var(--s-3) var(--s-4);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: color 0.15s, border-color 0.15s;
+  margin-bottom: -1px;
+}
+.travel-tab:hover { color: var(--ink); }
+.travel-tab.is-active {
+  color: var(--red-deep);
+  border-bottom-color: var(--red);
+}
+
+.travel-panel[hidden] { display: none; }
+.travel-panel > h3 {
+  margin-top: 0;
+}
+.travel-subheading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  margin: var(--s-7) 0 var(--s-4);
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+}
 
 .travel-footnote {
   color: var(--ink-soft);
